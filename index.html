@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Haul: plan your move</title>
+  <meta name="description" content="Work out how many boxes you need, what truck to get, and when to start packing.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Big+Shoulders+Stencil+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">H</span>
+      <span class="brand-name">Haul</span>
+    </div>
+    <p class="brand-tag">Plan your move before it plans you.</p>
+    <button type="button" class="btn btn-ghost" id="printBtn">Print plan</button>
+  </header>
+
+  <main class="layout">
+    <!-- ============ INPUTS ============ -->
+    <aside class="panel" aria-label="Your move">
+      <section class="group">
+        <h2>Your move</h2>
+
+        <label class="field">
+          <span>Move date</span>
+          <input type="date" id="moveDate">
+        </label>
+
+        <div class="field-row">
+          <label class="field">
+            <span>Moving from</span>
+            <select id="fromType">
+              <option value="dorm">Dorm</option>
+              <option value="apartment">Apartment</option>
+              <option value="house">House</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Moving to</span>
+            <select id="toType">
+              <option value="dorm">Dorm</option>
+              <option value="apartment">Apartment</option>
+              <option value="house">House</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="field-row">
+          <label class="field">
+            <span>Free hours a day to pack</span>
+            <input type="number" id="freeHours" min="0.5" max="16" step="0.5">
+          </label>
+          <label class="field">
+            <span>Drive time, one way (hrs)</span>
+            <input type="number" id="driveHours" min="0" max="48" step="0.25">
+          </label>
+        </div>
+
+        <label class="field">
+          <span>People on move day, including you</span>
+          <input type="number" id="helpers" min="1" max="12" step="1">
+        </label>
+      </section>
+
+      <section class="group">
+        <div class="group-head">
+          <h2>Rooms</h2>
+          <button type="button" class="link-btn" id="resetRooms">Use typical rooms</button>
+        </div>
+        <p class="hint">How full is each room? Packed means every shelf and drawer has stuff in it.</p>
+        <ul class="room-list" id="roomList"></ul>
+        <div class="add-room">
+          <select id="newRoomType" aria-label="Room type to add"></select>
+          <button type="button" class="btn btn-small" id="addRoom">Add room</button>
+        </div>
+      </section>
+
+      <section class="group">
+        <h2>Big furniture</h2>
+        <p class="hint">Only what's coming with you.</p>
+        <ul class="furniture-list" id="furnitureList"></ul>
+      </section>
+    </aside>
+
+    <!-- ============ OUTPUTS ============ -->
+    <section class="results" aria-label="Your plan">
+      <div class="manifest" id="manifest" aria-live="polite"></div>
+
+      <nav class="tabs" role="tablist" aria-label="Plan sections">
+        <button role="tab" class="tab" data-tab="supplies" aria-selected="true">Supplies</button>
+        <button role="tab" class="tab" data-tab="vehicle" aria-selected="false">Vehicle &amp; help</button>
+        <button role="tab" class="tab" data-tab="timeline" aria-selected="false">Packing timeline</button>
+        <button role="tab" class="tab" data-tab="setup" aria-selected="false">New place setup</button>
+      </nav>
+
+      <div class="tab-panel" id="panel-supplies" role="tabpanel"></div>
+      <div class="tab-panel" id="panel-vehicle" role="tabpanel" hidden></div>
+      <div class="tab-panel" id="panel-timeline" role="tabpanel" hidden></div>
+      <div class="tab-panel" id="panel-setup" role="tabpanel" hidden></div>
+
+      <p class="footnote">
+        Every number here is an estimate from rough moving rules of thumb, worked out in your browser.
+        Nothing is sent anywhere. Your plan is saved on this device.
+      </p>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
