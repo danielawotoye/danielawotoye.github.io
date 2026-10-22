@@ -1,0 +1,16 @@
+{
+  "name": "Haul: plan your move",
+  "short_name": "Haul",
+  "description": "Work out how many boxes you need, what truck to get, and when to start packing.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#1e2a36",
+  "theme_color": "#1e2a36",
+  "icons": [
+    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
