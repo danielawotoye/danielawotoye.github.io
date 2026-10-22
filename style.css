@@ -17,6 +17,7 @@
   --fragile: #b8352b;
   --ok: #2d7655;
   --focus: #2f6fb3;
+  --bar: #1e2a36;
 
   --font-body: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-stencil: "Big Shoulders Stencil Display", "Archivo", Impact, sans-serif;
@@ -39,6 +40,7 @@
     --fragile: #e3675c;
     --ok: #5cbf8f;
     --focus: #79aef0;
+    --bar: #0d1116;
   }
 }
 
@@ -70,7 +72,8 @@ button, input, select { font: inherit; color: inherit; }
   align-items: center;
   gap: 16px;
   padding: 14px 24px;
-  background: var(--ink);
+  background: var(--bar);
+  border-bottom: 1px solid var(--line);
   color: #f3f5f7;
 }
 
